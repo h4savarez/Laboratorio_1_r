@@ -1,0 +1,49 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+1. Vectores y matrices
+
+
+```{r}
+student_1 <- c(50.4, 62.3, 92.1, 77.6, TRUE ) 
+student_2 <- c(41.7, 87.9, 75.3, 72.4, FALSE)
+student_3 <- c(30.3, 67.8, 69.3, 71.2, FALSE)
+student_4 <- c(65.4, 85.1, 92.3, 96.8, TRUE)
+student_5 <- c(70.4, 88.2, 95.2, 90.7, TRUE)
+
+
+students_vector <- c(student_1, student_2, student_3, student_4, student_5)
+
+students_matrix <- matrix(students_vector, nrow = 5 , ncol= 5, byrow = TRUE)
+students_matrix
+
+
+
+
+
+```
+2. Nombrado de una matriz
+
+```{r}
+name_students <- c( "Lily Brown", "Davis Moore", "Susan Taylor", "Mike Jones","Tom Hill")
+name_courses_legal_age <- c("TIC", "Accounting", "Psychology", "Ethics","Legal_age" )
+
+data.frame(
+ 
+  name_students, 
+  name_courses_legal_age,
+  students_matrix
+)
+
+
+```
+
+rowSums, cbind
+
+```{r}
+
+```
+
