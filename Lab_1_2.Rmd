@@ -1,0 +1,123 @@
+---
+title: "R Notebook"
+output: html_notebook
+
+# si puede tomar en cuenta esta entrega se lo agradezco tuve inconvenientes para realizar a tiempo, gracias
+
+
+---
+
+
+1. Vectores y matrices
+
+
+```{r}
+student_1 <- c(50.4, 62.3, 92.1, 77.6, TRUE ) 
+student_2 <- c(41.7, 87.9, 75.3, 72.4, FALSE)
+student_3 <- c(30.3, 67.8, 69.3, 71.2, FALSE)
+student_4 <- c(65.4, 85.1, 92.3, 96.8, TRUE)
+student_5 <- c(70.4, 88.2, 95.2, 90.7, TRUE)
+
+
+students_vector <- c(student_1, student_2, student_3, student_4, student_5)
+#students_vector
+students_matrix <- matrix(students_vector, nrow = 5 , ncol= 5, byrow = TRUE)
+students_matrix
+
+
+
+
+
+```
+2. Nombrado de una matriz
+
+```{r}
+name_students <- c( "Lily Brown", "Davis Moore", "Susan Taylor", "Mike Jones","Tom Hill")
+name_courses_legal_age <- c("TIC", "Accounting", "Psychology", "Ethics","Legal_age" )
+
+tota_max <- data.frame(
+ 
+  name_students, 
+  
+ # name_courses_legal_age,
+  students_matrix
+)
+
+colnames(tota_max) <- c("name students", "TIC", "Accounting", "Psychology", "Ethics","Legal_age")
+tota_max
+TIC <- tota_max [c(1:5), c(2)]
+Accounting <- tota_max [c(1:5), c(3)]
+Psychology <- tota_max [c(1:5), c(4)]
+Ethics <- tota_max [c(1:5), c(5)]
+Legal_age <- tota_max [c(1:5), c(6)]
+
+```
+
+rowSums, cbind
+
+```{r}
+
+total_grade_student <- rowSums(tota_max[2:5])
+total_grade_student
+
+result_students <- cbind(students_matrix)
+result_students
+```
+4. Seleccionando elementos de una matriz
+
+```{r}
+
+selected_elements <- tota_max[c(2,4), c(2,4,6)]
+selected_elements
+```
+
+5. Data frames
+
+```{r}
+
+students_grades_df <- data.frame(result_students )
+students_grades_df
+
+
+#5.2
+tota_max
+subset(tota_max, subset = Accounting > 80 & Legal_age == TRUE)
+
+
+```
+
+
+6. Funciones, Condicionales y Bucles
+
+```{r}
+
+#students_projection }
+
+students_projection <- for (m in 1 : length(result_students[1:5,1:4]) ) {
+  
+ students_projectionn <- result_students[m]
+
+ 
+ if (students_projectionn <= 45){
+  print(paste(students_projectionn,"Student at risk"))
+   
+ }   
+    if (students_projectionn > 45){
+      if (students_projectionn <61){
+        
+         print(paste(students_projectionn,"Student may be approved"))
+      }
+    }
+ 
+   if (students_projectionn >=61){
+        
+         print(paste(students_projectionn,"Student approved"))
+      }
+ 
+    
+
+}
+
+students_projection
+```
+
